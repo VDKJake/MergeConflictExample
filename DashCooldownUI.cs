@@ -60,26 +60,6 @@ public class DashCooldownUI : MonoBehaviour {
             isDashActive = false;
         }
 
-        // If the mod is active and the timer isn't complete then
-        // create a 'percentage' out of the leftover time on the timer
-        // and the max duration of the mod, then reduce the fill amount
-        // based on this.
-        // Else, if the cooldown is active and the mod duration is over
-        // then do the same for the cooldown, except increase it instead.
-        if (isDashActive && !dashTimer.isComplete())
-        {
-            dashCooldownImage.GetComponent<CanvasRenderer>().SetAlpha(1.0f);
-            dashCooldownBackgroundImage.GetComponent<CanvasRenderer>().SetAlpha(1.0f);
-            float percent = dashTimer.Get_Time() / GLOBAL_VALUES.DASH_DURATION;
-            dashCooldownImage.fillAmount = Mathf.Lerp(0, 1, percent);
-        } else if (isCooldownActive && dashTimer.isComplete())
-        {
-            dashCooldownImage.GetComponent<CanvasRenderer>().SetAlpha(1.0f);
-            dashCooldownBackgroundImage.GetComponent<CanvasRenderer>().SetAlpha(1.0f);
-            float percent = dashCooldownTimer.Get_Time() / dashCooldownMaxTime;
-            dashCooldownImage.fillAmount = Mathf.Lerp(1, 0, percent);
-        }
-
         // If the cooldown timer has been set and the cooldown timer is
         // complete then tell the script that it is over.
         if (isSet == true)
