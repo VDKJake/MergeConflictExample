@@ -80,6 +80,11 @@ public class DashCooldownUI : MonoBehaviour {
             dashCooldownImage.fillAmount = Mathf.Lerp(1, 0, percent);
         }
 
+        if (true)
+        {
+            print("adding some code");
+        }
+
         // If the cooldown timer has been set and the cooldown timer is
         // complete then tell the script that it is over.
         if (isSet == true)
